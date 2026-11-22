@@ -100,31 +100,16 @@ cards.forEach(c=>c.addEventListener('click',()=>{
   if(c.dataset.series==='star'){
     area.innerHTML='<label for="seasonSelect" style="display:block;margin-top:18px;color:#c9c9d6;font-size:13px">SEZON SEÇ</label><select id="seasonSelect" style="margin-top:8px;background:#242436;color:white;border:1px solid #45455d;border-radius:8px;padding:11px;width:100%"><option value="1">1. Sezon</option><option value="2">2. Sezon</option><option value="3">3. Sezon</option><option value="4">4. Sezon</option></select><div id="episodeList" style="margin-top:12px"></div>';
     const select=document.querySelector('#seasonSelect');
-    const seasonOne=[
-      'Star Comes to Earth / Party with a Pony',
-      'Matchmaker / School Spirit',
-      'Monster Arm / The Other Exchange Student',
-      'Cheer Up, Star / Quest Buy',
-      'Diaz Family Vacation / Brittney’s Party',
-      'Mewberty / Pixtopia',
-      'Lobster Claws / Sleep Spells',
-      'Blood Moon Ball / Fortune Cookies',
-      'Freeze Day / Royal Pain',
-      'St. Olga’s Reform School for Wayward Princesses',
-      'Mewnipendence Day / The Banagic Incident',
-      'Interdimensional Field Trip / Marco Grows a Beard',
-      'Storm the Castle'
-    ];
     const renderEpisodes=()=>{
       const counts={1:13,2:22,3:21,4:21};
       const total=counts[select.value];
-      const names=select.value==='1'?seasonOne:Array.from({length:total},(_,i)=>(i+1)+'. Bölüm');
+      const names=Array.from({length:total},(_,i)=>(i+1)+'. Bölüm');
       document.querySelector('#episodeList').innerHTML='<div style="color:#aaa;font-size:13px;margin-bottom:7px">'+total+' bölüm · Bölüm seçimi</div>'+names.map((name,i)=>{
         const epNum=i+1;
         const key=select.value+'-'+epNum;
         const url=(embedMap.star && embedMap.star[key]) || '';
-        const label=select.value+'. Sezon '+epNum+'. Bölüm — '+name;
-        return '<button class="episode" type="button" onclick="playEmbed(\''+url.replace(/'/g,"\\'")+'\',\''+label.replace(/'/g,"\\'")+'\')">'+epNum+'. '+name+'</button>';
+        const label=select.value+'. Sezon '+name;
+        return '<button class="episode" type="button" onclick="playEmbed(\''+url.replace(/'/g,"\\'")+'\',\''+label.replace(/'/g,"\\'")+'\')">'+name+'</button>';
       }).join('');
     };
     select.addEventListener('change',renderEpisodes);renderEpisodes();
