@@ -79,15 +79,25 @@ const embedMap = {
 };
 
 const STORAGE_KEY = 'syvex_star_progress_v1';
+function defaultProg(){ return { season: '1', lastEpisode: null, watched: [] }; }
 function loadProgress(){
+  let parsed = null;
   try {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || { season: '1', lastEpisode: null, watched: [] };
-  } catch {
-    return { season: '1', lastEpisode: null, watched: [] };
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(raw) parsed = JSON.parse(raw);
+  } catch {}
+  if(!parsed){
+    try {
+      const m = document.cookie.match(new RegExp('(?:^|; )' + STORAGE_KEY + '=([^;]*)'));
+      if(m) parsed = JSON.parse(decodeURIComponent(m[1]));
+    } catch {}
   }
+  return Object.assign(defaultProg(), parsed || {});
 }
 function saveProgress(data){
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  const str = JSON.stringify(data);
+  try { localStorage.setItem(STORAGE_KEY, str); } catch {}
+  try { document.cookie = STORAGE_KEY + '=' + encodeURIComponent(str) + '; max-age=31536000; path=/; SameSite=Lax'; } catch {}
 }
 
 const cards=[...document.querySelectorAll('.card')];let active='Tümü';
