@@ -28,7 +28,7 @@ main{padding:34px 6% 70px}.section-head{display:flex;align-items:center;justify-
 .card-info{padding:12px 13px}.card-info b{display:block;font-size:14px}.meta{font-size:12px;color:var(--muted);margin-top:5px}
 .empty{color:var(--muted);padding:30px 0;display:none}
 footer{border-top:1px solid var(--line);padding:25px 6%;color:#77778a;font-size:13px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
-.modal{display:none;position:fixed;inset:0;background:#000c;z-index:10;align-items:center;justify-content:center;padding:18px}.modal.open{display:flex}.dialog{width:min(680px,100%);max-height:90vh;overflow-y:auto;background:#151522;border:1px solid #ffffff20;border-radius:16px;padding:25px;position:relative}.close{position:absolute;right:17px;top:13px;background:none;border:0;color:white;font-size:25px;cursor:pointer}.dialog h2{margin:4px 35px 8px 0}.dialog p{color:#c1c1cf;line-height:1.6}.notice{background:#242436;border-radius:9px;padding:13px;color:#d6d2e5;font-size:13px}.episode{display:inline-block;margin:6px 5px 0 0;padding:9px 12px;background:#242436;border:1px solid var(--line);border-radius:8px;color:white;cursor:pointer}.episode:hover{border-color:#a34bff;background:#2e2642}.player-box{margin-top:16px;background:#090910;border:1px solid var(--line);border-radius:12px;padding:12px}.player-box iframe{width:100%;height:350px;border:0;border-radius:8px;background:#000;display:block}.player-title{font-size:13px;color:#d6d2e5;margin-bottom:8px;font-weight:700}
+.modal{display:none;position:fixed;inset:0;background:#000c;z-index:10;align-items:center;justify-content:center;padding:18px}.modal.open{display:flex}.dialog{width:min(680px,100%);max-height:90vh;overflow-y:auto;background:#151522;border:1px solid #ffffff20;border-radius:16px;padding:25px;position:relative}.close{position:absolute;right:17px;top:13px;background:none;border:0;color:white;font-size:25px;cursor:pointer}.dialog h2{margin:4px 35px 8px 0}.dialog p{color:#c1c1cf;line-height:1.6}.notice{background:#242436;border-radius:9px;padding:13px;color:#d6d2e5;font-size:13px}.episode{display:inline-block;margin:6px 5px 0 0;padding:9px 12px;background:#242436;border:1px solid var(--line);border-radius:8px;color:white;cursor:pointer}.episode:hover{border-color:#a34bff;background:#2e2642}.episode.watched{border-color:#26a675;background:#17322a;color:#b8f5dc}.player-box{margin-top:16px;background:#090910;border:1px solid var(--line);border-radius:12px;padding:12px}.player-box iframe{width:100%;height:350px;border:0;border-radius:8px;background:#000;display:block}.player-title{font-size:13px;color:#d6d2e5;margin-bottom:8px;font-weight:700}.resume-bar{margin-top:14px;background:#1d1d2e;border:1px solid #ffffff1a;border-radius:10px;padding:11px 13px;font-size:13px;color:#d8d5ea;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.resume-btn{border:0;border-radius:7px;padding:8px 12px;font-weight:700;cursor:pointer;background:linear-gradient(100deg,var(--red),#a34bff);color:#fff}
 @media(max-width:950px){.grid{grid-template-columns:repeat(3,1fr)}nav{gap:12px}}
 @media(max-width:620px){header{padding:0 4%;height:auto;min-height:70px;flex-wrap:wrap;gap:10px;padding-top:12px;padding-bottom:12px}nav{order:3;width:100%;justify-content:space-between;padding:6px 0}.search{width:155px}.hero{padding:55px 6%;min-height:390px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.poster{height:175px}main{padding:25px 4% 50px}}
 </style>
@@ -66,7 +66,7 @@ footer{border-top:1px solid var(--line);padding:25px 6%;color:#77778a;font-size:
   <div class="card" data-title="Star Kötü Güçlere Karşı" data-genre="Macera" data-type="Dizi" data-series="star" role="button" tabindex="0" aria-label="Star Kötü Güçlere Karşı detaylarını aç" style="max-width:520px;display:flex;gap:16px;align-items:center;padding:16px;margin-top:16px"><div class="poster" style="height:110px;width:90px;min-width:90px;border-radius:9px;--c1:#25205b;--c2:#d84d8b;align-items:end"><strong style="font-size:14px">STAR</strong></div><div><b>Star Kötü Güçlere Karşı</b><div class="meta">Animasyon · Macera · 4 sezon</div><p style="color:var(--muted);font-size:13px;line-height:1.5;margin-bottom:0">Star Butterfly, sihirli asasını korumak için farklı boyutlarda maceralara atılır. Kartı açarak sezon ve bölüm listesini görüntüleyebilirsin.</p></div></div>
 </main>
 <footer><b class="logo" style="font-size:19px">SYVEX</b><span>© 2026 SYVEX · İzleme dünyan</span><span>Yalnızca kullanım hakkına sahip olduğun içerikleri yayınla.</span></footer>
-<div class="modal" id="modal" onclick="if(event.target===this)closeModal()"><div class="dialog"><button class="close" onclick="closeModal()">×</button><div class="eyebrow">SYVEX içerik</div><h2 id="modalTitle">Başlık</h2><p id="modalMeta"></p><p>Bu alan içerik detayları ve oynatıcı için hazır. Yayınlamak istediğin videoların kullanım hakkına sahip olduğundan emin ol.</p><div id="playerArea"></div><div class="notice" style="margin-top:14px">Harici oynatıcı aktif: Bölüm seçildiğinde tanımlı embed bağlantısı oynatıcıda açılır.</div><div id="episodes"></div></div></div>
+<div class="modal" id="modal" onclick="if(event.target===this)closeModal()"><div class="dialog"><button class="close" onclick="closeModal()">×</button><div class="eyebrow">SYVEX içerik</div><h2 id="modalTitle">Başlık</h2><p id="modalMeta"></p><p>Bu alan içerik detayları ve oynatıcı için hazır. Yayınlamak istediğin videoların kullanım hakkına sahip olduğundan emin ol.</p><div id="playerArea"></div><div class="notice" style="margin-top:14px">Harici oynatıcı aktif: Seçtiğin bölümler ve kaldığın bölüm tarayıcıda otomatik kaydedilir.</div><div id="episodes"></div></div></div>
 <script>
 const embedMap = {
   star: {
@@ -78,13 +78,37 @@ const embedMap = {
   }
 };
 
+const STORAGE_KEY = 'syvex_star_progress_v1';
+function loadProgress(){
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || { season: '1', lastEpisode: null, watched: [] };
+  } catch {
+    return { season: '1', lastEpisode: null, watched: [] };
+  }
+}
+function saveProgress(data){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
 const cards=[...document.querySelectorAll('.card')];let active='Tümü';
 function filter(){const q=document.querySelector('#search').value.toLocaleLowerCase('tr');let n=0;cards.forEach(c=>{if(!c.dataset.title)return;const ok=(active==='Tümü'||c.dataset.genre===active)&&c.dataset.title.toLocaleLowerCase('tr').includes(q);c.style.display=ok?'':'none';if(ok)n++});document.querySelector('#count').textContent=n+' içerik';document.querySelector('#empty').style.display=n?'none':'block'}
 document.querySelector('#search').addEventListener('input',filter);
 document.querySelectorAll('.chip').forEach(b=>b.addEventListener('click',()=>{document.querySelector('.chip.active').classList.remove('active');b.classList.add('active');active=b.dataset.filter;filter()}));
 
-function playEmbed(url, label){
+function playEmbed(url, label, key){
   const playerArea=document.querySelector('#playerArea');
+  if(key){
+    const prog=loadProgress();
+    const parts=key.split('-');
+    prog.season=parts[0];
+    prog.lastEpisode=key;
+    if(!prog.watched.includes(key))prog.watched.push(key);
+    saveProgress(prog);
+    const btn=document.querySelector('[data-ep-key="'+key+'"]');
+    if(btn)btn.classList.add('watched');
+    const resumeText=document.querySelector('#resumeText');
+    if(resumeText)resumeText.textContent='Kaldığın yer: '+parts[0]+'. Sezon '+parts[1]+'. Bölüm';
+  }
   if(!url){
     playerArea.innerHTML='<div class="player-box"><div class="player-title">'+label+'</div><div style="color:#a5a5b8;font-size:13px;padding:8px 0">Bu bölüm için henüz embed bağlantısı eklenmedi.</div></div>';
     return;
@@ -98,9 +122,13 @@ cards.forEach(c=>c.addEventListener('click',()=>{
   document.querySelector('#modalMeta').textContent=c.dataset.type+' · '+c.dataset.genre;
   const area=document.querySelector('#episodes');
   if(c.dataset.series==='star'){
-    area.innerHTML='<label for="seasonSelect" style="display:block;margin-top:18px;color:#c9c9d6;font-size:13px">SEZON SEÇ</label><select id="seasonSelect" style="margin-top:8px;background:#242436;color:white;border:1px solid #45455d;border-radius:8px;padding:11px;width:100%"><option value="1">1. Sezon</option><option value="2">2. Sezon</option><option value="3">3. Sezon</option><option value="4">4. Sezon</option></select><div id="episodeList" style="margin-top:12px"></div>';
+    const prog=loadProgress();
+    const lastLabel=prog.lastEpisode ? ('Kaldığın yer: '+prog.lastEpisode.split('-')[0]+'. Sezon '+prog.lastEpisode.split('-')[1]+'. Bölüm') : 'Henüz bölüm seçilmedi';
+    area.innerHTML='<div class="resume-bar"><span id="resumeText">'+lastLabel+'</span>'+(prog.lastEpisode?'<button class="resume-btn" type="button" id="resumeBtn">Kaldığım yerden devam et</button>':'')+'</div><label for="seasonSelect" style="display:block;margin-top:16px;color:#c9c9d6;font-size:13px">SEZON SEÇ</label><select id="seasonSelect" style="margin-top:8px;background:#242436;color:white;border:1px solid #45455d;border-radius:8px;padding:11px;width:100%"><option value="1">1. Sezon</option><option value="2">2. Sezon</option><option value="3">3. Sezon</option><option value="4">4. Sezon</option></select><div id="episodeList" style="margin-top:12px"></div>';
     const select=document.querySelector('#seasonSelect');
+    select.value=prog.season || '1';
     const renderEpisodes=()=>{
+      const curProg=loadProgress();
       const counts={1:13,2:22,3:21,4:21};
       const total=counts[select.value];
       const names=Array.from({length:total},(_,i)=>(i+1)+'. Bölüm');
@@ -109,12 +137,29 @@ cards.forEach(c=>c.addEventListener('click',()=>{
         const key=select.value+'-'+epNum;
         const url=(embedMap.star && embedMap.star[key]) || '';
         const label=select.value+'. Sezon '+name;
-        return '<button class="episode" type="button" onclick="playEmbed(\''+url.replace(/'/g,"\\'")+'\',\''+label.replace(/'/g,"\\'")+'\')">'+name+'</button>';
+        const watchedCls=curProg.watched.includes(key)?' watched':'';
+        return '<button class="episode'+watchedCls+'" data-ep-key="'+key+'" type="button" onclick="playEmbed(\''+url.replace(/'/g,"\\'")+'\',\''+label.replace(/'/g,"\\'")+'\',\''+key+'\')">'+name+'</button>';
       }).join('');
     };
-    select.addEventListener('change',renderEpisodes);renderEpisodes();
+    select.addEventListener('change',()=>{
+      const p=loadProgress();
+      p.season=select.value;
+      saveProgress(p);
+      renderEpisodes();
+    });
+    const resumeBtn=document.querySelector('#resumeBtn');
+    if(resumeBtn && prog.lastEpisode){
+      resumeBtn.addEventListener('click',()=>{
+        const [s,e]=prog.lastEpisode.split('-');
+        select.value=s;
+        renderEpisodes();
+        const url=(embedMap.star && embedMap.star[prog.lastEpisode]) || '';
+        playEmbed(url, s+'. Sezon '+e+'. Bölüm', prog.lastEpisode);
+      });
+    }
+    renderEpisodes();
   } else {
-    area.innerHTML=c.dataset.type==='Dizi'?'<div style="margin-top:16px;color:#aaa">Bölüm listesi</div><button class="episode" type="button" onclick="playEmbed(\'\',\'1. Bölüm\')">1. Bölüm</button><button class="episode" type="button" onclick="playEmbed(\'\',\'2. Bölüm\')">2. Bölüm</button><button class="episode" type="button" onclick="playEmbed(\'\',\'3. Bölüm\')">3. Bölüm</button>':'';
+    area.innerHTML=c.dataset.type==='Dizi'?'<div style="margin-top:16px;color:#aaa">Bölüm listesi</div><button class="episode" type="button" onclick="playEmbed(\'\',\'1. Bölüm\',\'\')">1. Bölüm</button><button class="episode" type="button" onclick="playEmbed(\'\',\'2. Bölüm\',\'\')">2. Bölüm</button><button class="episode" type="button" onclick="playEmbed(\'\',\'3. Bölüm\',\'\')">3. Bölüm</button>':'';
   }
   document.querySelector('#modal').classList.add('open')
 }));
